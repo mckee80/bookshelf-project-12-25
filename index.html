@@ -187,13 +187,17 @@
               <section className="hero">
                 <div className="hero-content">
                   <h1 className="hero-title">
-                    <span className="hero-title-main">Read & Make a Difference</span>
-                    <span className="hero-title-sub">Brian's mission to save lives through reading</span>
+                    <span className="hero-title-main">Read Stories, Change Lives</span>
+                    <span className="hero-title-sub">Building Hope One Story at a Time</span>
                   </h1>
                   <p className="hero-description">
-                    Join our community of readers supporting suicide prevention. Access our full ebook library 
-                    while your monthly contribution goes directly to mental health charities. 
-                    Every book you read helps fund crisis intervention and mental health resources.
+                    Join our community of readers supporting suicide prevention. Access our full ebook library while your monthly contribution goes directly to mental health charities. Every book you read helps fund crisis intervention and mental health resources. And every month will bring at least one new short story.
+                  </p>
+                  <p className="hero-description">
+                    If this resonates with you—if you've struggled, or if someone you know has—consider becoming part of our community. Every person helped by these charities is someone's relative, child, or friend. Join us in doing something, however small, to help those suffering around us. If a monthly contribution isn't possible, join with the $0 membership and enjoy full access.
+                  </p>
+                  <p className="hero-description hero-belief">
+                    We believe that a LARGE number of people, doing something SMALL consistently, can lead to GREAT things.
                   </p>
                   <div className="hero-actions">
                     <button className="btn btn-primary" onClick={() => setActiveView('subscription')}>
@@ -520,6 +524,66 @@
                     Brian's Bookshelf is a non-profit organization dedicated to supporting mental health and suicide prevention efforts. We foster community by offering donated short stories, creating a platform that entertains and inspires while empowering the critical work of mental health organizations.
                   </p>
                 </div>
+
+                <div className="about-section">
+                  <button 
+                    className="btn btn-primary" 
+                    style={{width: '100%'}}
+                    onClick={() => setActiveView('authors')}
+                  >
+                    Meet Our Donating Authors
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+
+          const AuthorsView = () => (
+            <div className="authors-view">
+              <div className="view-header">
+                <h2>Donating Authors</h2>
+                <p>These generous writers have donated their stories to support mental health</p>
+              </div>
+              <div className="authors-content">
+                <div className="author-card">
+                  <div className="author-info">
+                    <h3>Brian [Last Name]</h3>
+                    <p className="author-role">Founder's Brother · Novelist</p>
+                    <p className="author-bio">
+                      Brian was a writer who believed deeply in the power of stories to connect and heal. His graduate thesis novel sat unpublished for twenty years before becoming the inspiration for Brian's Bookshelf. Known for his goofy humor and deep empathy, Brian's work reflects his unique voice and perspective on life.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="author-card">
+                  <div className="author-info">
+                    <h3>Contributing Author Name</h3>
+                    <p className="author-role">Short Story Writer</p>
+                    <p className="author-bio">
+                      [Author bio will go here. This section will highlight the author's background, writing style, and why they chose to donate their work to support mental health causes.]
+                    </p>
+                  </div>
+                </div>
+
+                <div className="author-card">
+                  <div className="author-info">
+                    <h3>Contributing Author Name</h3>
+                    <p className="author-role">Short Story Writer</p>
+                    <p className="author-bio">
+                      [Author bio will go here. This section will highlight the author's background, writing style, and why they chose to donate their work to support mental health causes.]
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="authors-cta">
+                <div className="about-section">
+                  <h3>Want to Donate Your Story?</h3>
+                  <p>
+                    We're always looking for talented writers who want to contribute to mental health causes. If you have a short story you'd like to donate, we'd love to hear from you.
+                  </p>
+                  <button className="btn btn-primary">Contact Us</button>
+                </div>
               </div>
             </div>
           );
@@ -748,6 +812,13 @@
                   margin: 2rem auto;
                   max-width: 600px;
                   animation: fadeInUp 0.8s ease-out 0.2s both;
+                }
+
+                .hero-belief {
+                  font-weight: 600;
+                  color: var(--accent);
+                  font-style: italic;
+                  font-size: 1.3rem;
                 }
 
                 .hero-actions {
@@ -1259,6 +1330,63 @@
                   margin-bottom: 0;
                 }
 
+                /* Authors View */
+                .authors-content {
+                  max-width: 1000px;
+                  margin: 0 auto 3rem;
+                  display: grid;
+                  gap: 2rem;
+                }
+
+                .author-card {
+                  background: var(--surface);
+                  border-radius: 4px;
+                  padding: 2.5rem;
+                  box-shadow: 0 2px 12px var(--shadow);
+                  border: 1px solid var(--border);
+                  transition: transform 0.3s, box-shadow 0.3s;
+                }
+
+                .author-card:hover {
+                  transform: translateY(-4px);
+                  box-shadow: 0 8px 20px var(--shadow);
+                }
+
+                .author-info h3 {
+                  font-family: 'Libre Baskerville', serif;
+                  font-size: 1.8rem;
+                  margin-bottom: 0.5rem;
+                  color: var(--primary);
+                }
+
+                .author-role {
+                  color: var(--accent);
+                  font-size: 1rem;
+                  font-weight: 600;
+                  margin-bottom: 1rem;
+                  text-transform: uppercase;
+                  letter-spacing: 0.5px;
+                }
+
+                .author-bio {
+                  font-size: 1.1rem;
+                  line-height: 1.8;
+                  color: var(--text);
+                }
+
+                .authors-cta {
+                  max-width: 900px;
+                  margin: 0 auto;
+                }
+
+                .authors-cta .about-section {
+                  text-align: center;
+                }
+
+                .authors-cta .about-section p {
+                  margin-bottom: 2rem;
+                }
+
                 /* Buttons */
                 .btn {
                   padding: 0.8rem 2rem;
@@ -1751,6 +1879,7 @@
                 {activeView === 'shop' && <ShopView />}
                 {activeView === 'subscription' && <SubscriptionView />}
                 {activeView === 'about' && <AboutView />}
+                {activeView === 'authors' && <AuthorsView />}
                 {activeView === 'account' && currentUser && <AccountView />}
               </main>
 
